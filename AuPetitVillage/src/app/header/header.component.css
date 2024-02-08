@@ -1,0 +1,34 @@
+.header {
+    position: sticky;
+    background-color: red;
+    height: 64px;
+    width: 100%;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 10px;
+}
+
+.home-link.logo {
+    display: block;
+    height: 56px;
+    width: 56px;
+    margin-top: 3px;
+    background-color: black;
+    grid-column: 6/8;
+    justify-self: center;
+}
+
+.links-container {
+    grid-column: 11/ 13;
+    justify-self: start;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.links-container a {
+    text-decoration: none;
+    color: black;
+}
