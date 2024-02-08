@@ -1,6 +1,6 @@
 .header {
     position: sticky;
-    background-color: red;
+    background-color: rgb(255, 0, 0);
     height: 64px;
     width: 100%;
     padding: 0;
@@ -12,14 +12,6 @@
 .header__burger-button {
     display: none;
 }
-
-@media screen and (max-width: 840px) {
-    .header__burger-button {
-        display: block;
-    }
-    
-}
-
 
 
 .header__home-link.logo {
@@ -44,4 +36,29 @@
 .header__links-container a {
     text-decoration: none;
     color: black;
+}
+
+@media screen and (max-width: 840px) {
+    .header__burger-button {
+        display: block;
+        grid-column: 4/6;
+        order: 1;
+    }
+
+    .header {
+        width: 100%;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+    
+    .header__home-link.logo {
+        grid-column: 2/4;
+        justify-self: center;
+    }
+
+    .header__links-container {
+       display: none;
+    }
 }
