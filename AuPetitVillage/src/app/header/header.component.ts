@@ -15,7 +15,7 @@ export class HeaderComponent {
       linksContainer.classList.toggle('is-hidden', !this.menuOpen);
     }
   }
-  
+
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
       if(window.innerWidth > 840) {
