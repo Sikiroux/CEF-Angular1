@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,19 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-
-
-  ngOnInit(): void{
+  menuOpen = false;
+  
+  toggleMenu(): void{
+    this.menuOpen = !this.menuOpen;
+    const linksContainer = document.querySelector('.header__links-container-mobile');
+    if (linksContainer) {
+      linksContainer.classList.toggle('is-hidden', !this.menuOpen);
+    }
   }
   
-  openMenu(): void{
-    const burgerMenu = document.querySelector(".header__links-container");
-    if(burgerMenu instanceof HTMLElement) {
-      if (burgerMenu.style.display === "block") {
-        burgerMenu.style.display = "none";
-      } else {
-        burgerMenu.style.display = "block";
-      } 
-    }
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+      if(window.innerWidth > 840) {
+        this.menuOpen = false;
+      }
   }
 }

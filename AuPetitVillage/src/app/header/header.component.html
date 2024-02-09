@@ -1,9 +1,13 @@
 <div class="header">
-    <button class="header__burger-button" (click)="openMenu()"></button>
+    <button class="header__burger-button" (click)="toggleMenu()"></button>
     <a class="header__home-link logo">
         <img>
     </a>
     <nav class="header__links-container">
+        <a href="#" class="contact-link">Contact</a>
+        <a href="#" class="about-link">A propos</a>
+    </nav>
+    <nav *ngIf="menuOpen" class="header__links-container-mobile">
         <a href="#" class="contact-link">Contact</a>
         <a href="#" class="about-link">A propos</a>
     </nav>
